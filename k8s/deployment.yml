@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: temp-converter
+  labels:
+    app: temp-converter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: temp-converter
+  template:
+    metadata:
+      labels:
+        app: temp-converter
+    spec:
+      containers:
+      - name: temp-converter
+        image: marrinagalakshmi/temp-converter:v1
+        ports:
+        - containerPort: 5000
